@@ -3,7 +3,15 @@ local Workspace = game:GetService("Workspace")
 
 local doorsModule = require(ReplicatedStorage.Common.doors)
 
-local door = doorsModule.NewSwingDoor(Workspace.door, Workspace.axis)
+local door = doorsModule.NewSwingDoor(Workspace.door, Workspace.axis, 1)
 spawn(function ()
-    door:Spin()
+    while true do
+        door:Open()
+
+        wait(3)
+
+        door:Close()
+
+        wait(3)
+    end
 end)
